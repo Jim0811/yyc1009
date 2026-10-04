@@ -19,13 +19,13 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="回到封面"><span class="brand-mark">Y</span><span>FOR YYC <small>· 2026.10.09</small></span></a>
     <nav aria-label="網站導覽"><a href="#memories">回憶</a><a href="#letter">給妳的信</a></nav>
-    <button class="music-button" id="musicButton" type="button" aria-label="播放音樂" aria-pressed="false" title="播放音樂"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">播放音樂</span></button>
-    <audio id="birthdayAudio" preload="none" loop></audio>
+    <button class="music-button" id="musicButton" type="button" aria-label="聽我唱歌" aria-pressed="false" title="聽我唱歌"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">聽我唱歌</span></button>
+    <audio id="birthdayAudio" src="assets/yyc-song.m4a" preload="none" loop></audio>
   </header>
 
   <main>
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-image" role="img" aria-label="小企鵝和汪汪坐在港邊一起看夜色的插畫"></div>
+    <section class="hero story-page" id="top" aria-labelledby="hero-title">
+      <div class="hero-image" role="img" aria-label="我們一起留下的生日回憶照片"></div>
       <div class="hero-shade"></div>
       <div class="hero-content wrap">
         <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span>A LITTLE UNIVERSE FOR YOU <span class="sparkle">✦</span></p>
@@ -42,11 +42,11 @@
       <div class="scroll-note" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
     </section>
 
-    <section class="intro-section" aria-label="給歪歪西的小語">
+    <section class="intro-section story-page" aria-label="給歪歪西的小語">
       <div class="wrap intro-grid"><p class="section-kicker">DEAR YYC</p><p class="intro-quote">「有些相遇，會讓後來的每一天，<br>都變得不一樣。」</p><p class="intro-aside">這是一份只屬於妳的<br>小小生日禮物。</p></div>
     </section>
 
-    <section class="memories-section" id="memories" aria-labelledby="memories-title">
+    <section class="memories-section story-page" id="memories" aria-labelledby="memories-title">
       <div class="wrap">
         <div class="section-heading"><div><p class="section-kicker">01 / OUR MEMORIES</p><h2 id="memories-title">把日子，<em>慢慢收藏。</em></h2></div><p>從第一次心動，到後來每一個再普通不過的日常。<br>只要是和妳一起，都值得留下來。</p></div>
         <div class="timeline" id="timeline">
@@ -71,17 +71,19 @@
       </div>
     </section>
 
-    <section class="interlude" aria-label="愛的約定"><p>無論今天是晴天，還是有點累的一天，</p><strong>都讓我陪妳一起走。</strong><span>✦ &nbsp; ALWAYS, WITH YOU &nbsp; ✦</span></section>
+    <section class="interlude story-page" aria-label="愛的約定"><p>無論今天是晴天，還是有點累的一天，</p><strong>都讓我陪妳一起走。</strong><span>✦ &nbsp; ALWAYS, WITH YOU &nbsp; ✦</span></section>
 
-    <section class="letter-section" id="letter" aria-labelledby="letter-title">
+    <section class="letter-section story-page" id="letter" aria-labelledby="letter-title">
       <div class="wrap letter-layout"><div class="letter-intro"><p class="section-kicker">02 / A LETTER FOR YOU</p><h2 id="letter-title">有些話，<br><em>想親自對妳說。</em></h2><p>寫給我最愛的歪歪西。<br>希望妳每次讀到，都能記得自己有多值得被愛。</p><div class="letter-seal" aria-hidden="true">YYC<br><small>♡</small></div></div>
-      <article class="letter-paper"><div class="paper-top"><span>TO MY DEAREST YYC</span><span>2026 · 10 · 09</span></div><div class="letter-body"><p class="salutation">To 歪歪西：</p><p>祝我最愛的女孩生日快樂！</p><p>從初遇時的悸動，到後來每一步踏實的牽手；從妳忙碌時化身的段考超人，到我隨時準備報到的黏踢踢小企鵝與汪汪。回頭看這些一起走過的日子，每一張照片、每一次散步、甚至只是日常的幾句打鬧，都因為身邊是妳，才有了最溫暖的意義。</p><p>妳總是那麼認真地生活、用心地對待身邊的一切，但在我面前，妳永遠可以安心地做最自在的自己。累的時候有我當妳最堅強的後盾，開心的時候有我陪妳一起大笑。</p><p>謝謝妳走進我的生命，讓我擁有把所有認真與寵溺都留給妳的特權。新的一歲，願妳的所有願望都悄悄實現，每天都要開開心心地「嘻嘻」喔！</p><p class="signature">歪歪的小企鵝 魚子醬 <span>🐧🐾</span></p></div></article></div>
+      <article class="letter-paper"><div class="paper-top"><span>TO MY DEAREST YYC · 1 / 2</span><span>2026 · 10 · 09</span></div><div class="letter-body"><p class="salutation">To 歪歪西：</p><p>祝我最愛的女孩生日快樂！</p><p>從初遇時的悸動，到後來每一步踏實的牽手；從妳忙碌時化身的段考超人，到我隨時準備報到的黏踢踢小企鵝與汪汪。回頭看這些一起走過的日子，每一張照片、每一次散步、甚至只是日常的幾句打鬧，都因為身邊是妳，才有了最溫暖的意義。</p></div></article></div>
     </section>
 
-    <section class="final-section" aria-labelledby="final-title"><div class="wrap final-inner"><p class="section-kicker">ONE MORE LITTLE THING</p><h2 id="final-title">累了的時候，<br>按一下，讓我來陪妳。</h2><button id="penguinButton" class="penguin-button" type="button"><span aria-hidden="true">🐧</span> 召喚黏踢踢小企鵝 <span aria-hidden="true">♡</span></button><p id="penguinMessage" class="penguin-message" aria-live="polite">隨時待命，只為妳。</p><div id="particleLayer" class="particle-layer" aria-hidden="true"></div></div></section>
-  </main>
+    <section class="letter-section letter-continuation story-page" aria-label="給歪歪西的信，續篇"><div class="wrap letter-layout"><div class="letter-intro"><p class="section-kicker">03 / ALWAYS WITH YOU</p><h2>還有，<br><em>往後的每一天。</em></h2><p>這封信的下一頁，<br>也想留給我們未來的故事。</p></div><article class="letter-paper"><div class="paper-top"><span>TO MY DEAREST YYC · 2 / 2</span><span>2026 · 10 · 09</span></div><div class="letter-body"><p>妳總是那麼認真地生活、用心地對待身邊的一切，但在我面前，妳永遠可以安心地做最自在的自己。累的時候有我當妳最堅強的後盾，開心的時候有我陪妳一起大笑。</p><p>謝謝妳走進我的生命，讓我擁有把所有認真與寵溺都留給妳的特權。新的一歲，願妳的所有願望都悄悄實現，每天都要開開心心地「嘻嘻」喔！</p><p class="signature">歪歪的小企鵝 魚子醬 <span>🐧🐾</span></p></div></article></div></section>
 
-  <footer class="site-footer"><span>MADE WITH ALL MY LOVE FOR YYC</span><span>2026.10.09 <span aria-hidden="true">✦</span> 魚子醬</span></footer>
+    <section class="final-section story-page" aria-labelledby="final-title"><div class="wrap final-inner"><p class="section-kicker">ONE MORE LITTLE THING</p><h2 id="final-title">累了的時候，<br>按一下，讓我來陪妳。</h2><button id="penguinButton" class="penguin-button" type="button"><span aria-hidden="true">🐧</span> 召喚黏踢踢小企鵝 <span aria-hidden="true">♡</span></button><p id="penguinMessage" class="penguin-message" aria-live="polite">隨時待命，只為妳。</p><div id="particleLayer" class="particle-layer" aria-hidden="true"></div></div></section>
+
+    <section class="video-section story-page" id="song" aria-labelledby="song-title"><div class="wrap video-layout"><div class="video-copy"><p class="section-kicker">04 / JUST FOR YOU</p><h2 id="song-title">最後，<br><em>把這首歌唱給妳聽。</em></h2><p>妳說想聽我自彈自唱。<br>這一次，換我把心意唱成一首歌，送給妳。</p><small>影片會循環播放 · 點一下可開啟歌聲</small></div><div class="video-frame"><video id="birthdayVideo" src="assets/yyc-song.mp4" poster="assets/IMG_0205.JPG" preload="metadata" playsinline muted loop controls aria-label="唱給歪歪西的歌"></video><button id="videoSoundButton" class="video-sound-button" type="button">點一下，聽我唱給妳聽 ♫</button></div></div><footer class="site-footer"><span>MADE WITH ALL MY LOVE FOR YYC</span><span>2026.10.09 <span aria-hidden="true">✦</span> 魚子醬</span></footer></section>
+  </main>
 
   <dialog id="memoryDialog" class="memory-dialog" aria-labelledby="dialogTitle"><button id="closeDialog" class="dialog-close" type="button" aria-label="關閉回憶">×</button><div id="dialogArt" class="dialog-art"></div><div class="dialog-copy"><span id="dialogIndex" class="section-kicker"></span><h3 id="dialogTitle"></h3><p id="dialogText"></p></div></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

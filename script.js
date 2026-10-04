@@ -46,26 +46,92 @@ function showToast(message) {
 
 const musicButton = document.getElementById('musicButton');
 const audio = document.getElementById('birthdayAudio');
+const video = document.getElementById('birthdayVideo');
+const videoSoundButton = document.getElementById('videoSoundButton');
+let wantsMusic = false;
+let onVideoPage = false;
+
+function updateMusicControls() {
+  const isAudible = onVideoPage ? !video.muted && !video.paused : !audio.paused;
+  musicButton.setAttribute('aria-pressed', String(isAudible));
+  musicButton.setAttribute('aria-label', isAudible ? '暫停歌聲' : '聽我唱歌');
+  musicButton.title = isAudible ? '暫停歌聲' : '聽我唱歌';
+  videoSoundButton.hidden = !onVideoPage || !video.muted;
+}
+
 musicButton.addEventListener('click', async () => {
-  if (!audio.paused) {
-    audio.pause();
-    musicButton.setAttribute('aria-pressed', 'false');
-    musicButton.setAttribute('aria-label', '播放音樂');
+  if (onVideoPage) {
+    if (!video.muted && !video.paused) {
+      video.muted = true;
+      wantsMusic = false;
+    } else {
+      video.muted = false;
+      try {
+        await video.play();
+        wantsMusic = true;
+      } catch {
+        video.muted = true;
+        wantsMusic = false;
+        showToast('請點影片上的按鈕開啟歌聲 ♫');
+      }
+    }
+    updateMusicControls();
     return;
   }
-  if (!audio.getAttribute('src')) {
-    showToast('專屬歌曲的位置已準備好，等我們把歌放進來 ♫');
+  if (!audio.paused) {
+    audio.pause();
+    wantsMusic = false;
+    updateMusicControls();
     return;
   }
   try {
     await audio.play();
-    musicButton.setAttribute('aria-pressed', 'true');
-    musicButton.setAttribute('aria-label', '暫停音樂');
+    wantsMusic = true;
+    updateMusicControls();
   } catch {
-    showToast('專屬歌曲的位置已準備好，等我們把歌放進來 ♫');
+    wantsMusic = false;
+    showToast('歌曲還沒能播放，請再點一次 ♫');
   }
 });
-audio.addEventListener('error', () => { musicButton.setAttribute('aria-pressed', 'false'); });
+audio.addEventListener('error', () => { wantsMusic = false; updateMusicControls(); });
+video.addEventListener('volumechange', () => { if (onVideoPage) updateMusicControls(); });
+video.addEventListener('error', () => showToast('影片載入失敗，請重新整理頁面。'));
+videoSoundButton.addEventListener('click', async () => {
+  video.muted = false;
+  try {
+    await video.play();
+    wantsMusic = true;
+  } catch {
+    video.muted = true;
+    wantsMusic = false;
+    showToast('請再點一次影片來播放歌聲 ♫');
+  }
+  updateMusicControls();
+});
+
+async function enterVideoPage() {
+  onVideoPage = true;
+  audio.pause();
+  video.muted = !wantsMusic;
+  try {
+    await video.play();
+  } catch {
+    video.muted = true;
+    wantsMusic = false;
+    await video.play().catch(() => {});
+  }
+  updateMusicControls();
+}
+
+async function leaveVideoPage() {
+  onVideoPage = false;
+  video.pause();
+  if (wantsMusic) {
+    try { await audio.play(); }
+    catch { wantsMusic = false; }
+  }
+  updateMusicControls();
+}
 
 const penguinButton = document.getElementById('penguinButton');
 const particleLayer = document.getElementById('particleLayer');
@@ -89,3 +155,30 @@ penguinButton.addEventListener('click', () => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) setTimeout(() => particle.remove(), 100);
   }
 });
+
+const pages = [...document.querySelectorAll('.story-page')];
+const revealSelector = '.hero-content > *, .intro-grid > *, .section-heading > *, .memory-card, .interlude > *, .letter-intro > *, .letter-body > p, .final-inner > :not(.particle-layer), .video-copy > *, .video-frame';
+pages.forEach(page => {
+  page.querySelectorAll(revealSelector).forEach((item, index) => {
+    item.classList.add('reveal');
+    item.style.setProperty('--reveal-delay', `${Math.min(index * 85, 500)}ms`);
+  });
+});
+document.documentElement.classList.add('motion-ready');
+
+if ('IntersectionObserver' in window) {
+  const pageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const active = entry.isIntersecting && entry.intersectionRatio >= .35;
+      entry.target.classList.toggle('is-current', active);
+      if (entry.target.id === 'song') {
+        if (active && !onVideoPage) enterVideoPage();
+        else if (!active && onVideoPage) leaveVideoPage();
+      }
+    });
+  }, { threshold: [0, .35, .7] });
+  pages.forEach(page => pageObserver.observe(page));
+} else {
+  pages.forEach(page => page.classList.add('is-current'));
+}
+updateMusicControls();
