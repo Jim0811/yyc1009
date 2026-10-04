@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101e30">
+  <meta name="description" content="給歪歪西的生日禮物：從 2026 年 5 月 13 日起，我們一起寫下的故事。">
+  <meta name="robots" content="noindex, nofollow">
+  <title>生日快樂，歪歪西｜給妳的一封信</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23101e30'/%3E%3Cpath d='M32 49 13 30a11 11 0 0 1 16-15l3 3 3-3a11 11 0 0 1 16 15Z' fill='%23e8c99b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#memories">跳到回憶</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="回到封面"><span class="brand-mark">Y</span><span>FOR YYC <small>· 2026.10.09</small></span></a>
+    <nav aria-label="網站導覽"><a href="#memories">回憶</a><a href="#letter">給妳的信</a></nav>
+    <button class="music-button" id="musicButton" type="button" aria-label="播放音樂" aria-pressed="false" title="播放音樂"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">播放音樂</span></button>
+    <audio id="birthdayAudio" preload="none" loop></audio>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-image" role="img" aria-label="小企鵝和汪汪坐在港邊一起看夜色的插畫"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content wrap">
+        <p class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span>A LITTLE UNIVERSE FOR YOU <span class="sparkle">✦</span></p>
+        <p class="hero-date">OCTOBER 09, 2026</p>
+        <h1 id="hero-title">生日快樂，<br><em>歪歪西。</em></h1>
+        <p class="hero-intro">從駁二那天開始，平凡的日子<br class="desktop-break">就有了值得一再珍藏的光。</p>
+        <div class="days-card" aria-live="polite">
+          <span class="days-icon" aria-hidden="true">✳</span>
+          <div><strong id="daysTogether">—</strong><span>天</span><small>從 2026.05.13 起，和妳一起走過</small></div>
+        </div>
+        <a class="primary-button" href="#memories">開啟我們的回憶 <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-side-note" aria-hidden="true">OUR STORY · EST. MAY 13</div>
+      <div class="scroll-note" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="intro-section" aria-label="給歪歪西的小語">
+      <div class="wrap intro-grid"><p class="section-kicker">DEAR YYC</p><p class="intro-quote">「有些相遇，會讓後來的每一天，<br>都變得不一樣。」</p><p class="intro-aside">這是一份只屬於妳的<br>小小生日禮物。</p></div>
+    </section>
+
+    <section class="memories-section" id="memories" aria-labelledby="memories-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="section-kicker">01 / OUR MEMORIES</p><h2 id="memories-title">把日子，<em>慢慢收藏。</em></h2></div><p>從第一次心動，到後來每一個再普通不過的日常。<br>只要是和妳一起，都值得留下來。</p></div>
+        <div class="timeline" id="timeline">
+          <button class="memory-card memory-one" type="button" data-memory="0" aria-label="閱讀回憶：從駁二開始">
+            <span class="memory-art"><span class="memory-symbol" aria-hidden="true">01</span><span class="memory-art-label">THE FIRST HELLO</span></span>
+            <span class="memory-copy"><span class="memory-index">01 / 2026.05.13</span><strong>從駁二開始</strong><span>那天的風、那天的妳，還有我藏不住的悸動。</span><span class="memory-open">點開回憶 <span aria-hidden="true">＋</span></span></span>
+          </button>
+          <button class="memory-card memory-two" type="button" data-memory="1" aria-label="閱讀回憶：一朵手摺玫瑰">
+            <span class="memory-art"><span class="memory-symbol" aria-hidden="true">✳</span><span class="memory-art-label">A LITTLE ROSE</span></span>
+            <span class="memory-copy"><span class="memory-index">02 / OUR LITTLE MOMENTS</span><strong>一朵手摺玫瑰</strong><span>笨拙卻很認真的心意，想親手交到妳手裡。</span><span class="memory-open">點開回憶 <span aria-hidden="true">＋</span></span></span>
+          </button>
+          <button class="memory-card memory-three" type="button" data-memory="2" aria-label="閱讀回憶：牽著手的陪伴">
+            <span class="memory-art"><span class="memory-symbol" aria-hidden="true">∞</span><span class="memory-art-label">SIDE BY SIDE</span></span>
+            <span class="memory-copy"><span class="memory-index">03 / ALWAYS HERE</span><strong>牽著手的陪伴</strong><span>畢業典禮、忙碌的考試，妳的身邊都有我。</span><span class="memory-open">點開回憶 <span aria-hidden="true">＋</span></span></span>
+          </button>
+          <button class="memory-card memory-four" type="button" data-memory="3" aria-label="閱讀回憶：開學後的散步">
+            <span class="memory-art"><span class="memory-symbol" aria-hidden="true">☾</span><span class="memory-art-label">EVERYDAY MAGIC</span></span>
+            <span class="memory-copy"><span class="memory-index">04 / AND EVERY DAY AFTER</span><strong>開學後的散步</strong><span>沒有特別的安排，和妳走著走著就很幸福。</span><span class="memory-open">點開回憶 <span aria-hidden="true">＋</span></span></span>
+          </button>
+        </div>
+        <p class="gallery-hint">左右滑動，收藏每段故事 <span aria-hidden="true">↔</span></p>
+      </div>
+    </section>
+
+    <section class="interlude" aria-label="愛的約定"><p>無論今天是晴天，還是有點累的一天，</p><strong>都讓我陪妳一起走。</strong><span>✦ &nbsp; ALWAYS, WITH YOU &nbsp; ✦</span></section>
+
+    <section class="letter-section" id="letter" aria-labelledby="letter-title">
+      <div class="wrap letter-layout"><div class="letter-intro"><p class="section-kicker">02 / A LETTER FOR YOU</p><h2 id="letter-title">有些話，<br><em>想親自對妳說。</em></h2><p>寫給我最愛的歪歪西。<br>希望妳每次讀到，都能記得自己有多值得被愛。</p><div class="letter-seal" aria-hidden="true">YYC<br><small>♡</small></div></div>
+      <article class="letter-paper"><div class="paper-top"><span>TO MY DEAREST YYC</span><span>2026 · 10 · 09</span></div><div class="letter-body"><p class="salutation">To 歪歪西：</p><p>祝我最愛的女孩生日快樂！</p><p>從初遇時的悸動，到後來每一步踏實的牽手；從妳忙碌時化身的段考超人，到我隨時準備報到的黏踢踢小企鵝與汪汪。回頭看這些一起走過的日子，每一張照片、每一次散步、甚至只是日常的幾句打鬧，都因為身邊是妳，才有了最溫暖的意義。</p><p>妳總是那麼認真地生活、用心地對待身邊的一切，但在我面前，妳永遠可以安心地做最自在的自己。累的時候有我當妳最堅強的後盾，開心的時候有我陪妳一起大笑。</p><p>謝謝妳走進我的生命，讓我擁有把所有認真與寵溺都留給妳的特權。新的一歲，願妳的所有願望都悄悄實現，每天都要開開心心地「嘻嘻」喔！</p><p class="signature">歪歪的小企鵝 魚子醬 <span>🐧🐾</span></p></div></article></div>
+    </section>
+
+    <section class="final-section" aria-labelledby="final-title"><div class="wrap final-inner"><p class="section-kicker">ONE MORE LITTLE THING</p><h2 id="final-title">累了的時候，<br>按一下，讓我來陪妳。</h2><button id="penguinButton" class="penguin-button" type="button"><span aria-hidden="true">🐧</span> 召喚黏踢踢小企鵝 <span aria-hidden="true">♡</span></button><p id="penguinMessage" class="penguin-message" aria-live="polite">隨時待命，只為妳。</p><div id="particleLayer" class="particle-layer" aria-hidden="true"></div></div></section>
+  </main>
+
+  <footer class="site-footer"><span>MADE WITH ALL MY LOVE FOR YYC</span><span>2026.10.09 <span aria-hidden="true">✦</span> 魚子醬</span></footer>
+
+  <dialog id="memoryDialog" class="memory-dialog" aria-labelledby="dialogTitle"><button id="closeDialog" class="dialog-close" type="button" aria-label="關閉回憶">×</button><div id="dialogArt" class="dialog-art"></div><div class="dialog-copy"><span id="dialogIndex" class="section-kicker"></span><h3 id="dialogTitle"></h3><p id="dialogText"></p></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
