@@ -20,7 +20,9 @@ html{scroll-snap-type:y mandatory}
 .letter-continuation .letter-body p:first-child{margin-top:34px}
 .final-section{padding:105px 20px 55px}
 
-/* The final page uses the same recording as the music control. */
+/* The recording is heard throughout the story and shown on the final page. */
+.sound-hint{font-family:var(--serif);font-size:12px;line-height:1.7;color:#f2d9b5;margin:18px 0 0}
+.sound-hint[hidden]{display:none}
 .video-section{position:relative;display:flex;align-items:center;background:radial-gradient(circle at 70% 35%,#243e56,#101e30 68%);color:#fff;padding:90px 0 75px;overflow:hidden}
 .video-layout{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:8%}
 .video-copy h2{font-family:var(--serif);font-size:clamp(34px,4vw,58px);font-weight:500;line-height:1.5;margin:18px 0 22px}

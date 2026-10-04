@@ -19,8 +19,6 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="回到封面"><span class="brand-mark">Y</span><span>FOR YYC <small>· 2026.10.09</small></span></a>
     <nav aria-label="網站導覽"><a href="#memories">回憶</a><a href="#letter">給妳的信</a></nav>
-    <button class="music-button" id="musicButton" type="button" aria-label="聽我唱歌" aria-pressed="false" title="聽我唱歌"><span class="music-icon" aria-hidden="true">♫</span><span class="music-label">聽我唱歌</span></button>
-    <audio id="birthdayAudio" src="assets/yyc-song.m4a" preload="none" loop></audio>
   </header>
 
   <main>
@@ -37,6 +35,7 @@
           <div><strong id="daysTogether">—</strong><span>天</span><small>從 2026.05.13 起，和妳一起走過</small></div>
         </div>
         <a class="primary-button" href="#memories">開啟我們的回憶 <span aria-hidden="true">↓</span></a>
+        <p class="sound-hint" id="soundHint" hidden>點一下畫面，讓歌聲陪妳讀完這段故事 ♫</p>
       </div>
       <div class="hero-side-note" aria-hidden="true">OUR STORY · EST. MAY 13</div>
       <div class="scroll-note" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
@@ -82,7 +81,7 @@
 
     <section class="final-section story-page" aria-labelledby="final-title"><div class="wrap final-inner"><p class="section-kicker">ONE MORE LITTLE THING</p><h2 id="final-title">累了的時候，<br>按一下，讓我來陪妳。</h2><button id="penguinButton" class="penguin-button" type="button"><span aria-hidden="true">🐧</span> 召喚黏踢踢小企鵝 <span aria-hidden="true">♡</span></button><p id="penguinMessage" class="penguin-message" aria-live="polite">隨時待命，只為妳。</p><div id="particleLayer" class="particle-layer" aria-hidden="true"></div></div></section>
 
-    <section class="video-section story-page" id="song" aria-labelledby="song-title"><div class="wrap video-layout"><div class="video-copy"><p class="section-kicker">04 / JUST FOR YOU</p><h2 id="song-title">最後，<br><em>把這首歌唱給妳聽。</em></h2><p>妳說想聽我自彈自唱。<br>這一次，換我把心意唱成一首歌，送給妳。</p><small>影片會循環播放 · 點一下可開啟歌聲</small></div><div class="video-frame"><video id="birthdayVideo" src="assets/yyc-song.mp4" poster="assets/IMG_0205.JPG" preload="metadata" playsinline muted loop controls aria-label="唱給歪歪西的歌"></video><button id="videoSoundButton" class="video-sound-button" type="button">點一下，聽我唱給妳聽 ♫</button></div></div><footer class="site-footer"><span>MADE WITH ALL MY LOVE FOR YYC</span><span>2026.10.09 <span aria-hidden="true">✦</span> 魚子醬</span></footer></section>
+    <section class="video-section story-page" id="song" aria-labelledby="song-title"><div class="wrap video-layout"><div class="video-copy"><p class="section-kicker">04 / JUST FOR YOU</p><h2 id="song-title">最後，<br><em>把這首歌唱給妳聽。</em></h2><p>妳說想聽我自彈自唱。<br>這一次，換我把心意唱成一首歌，送給妳。</p><small>影片會從進站起循環播放</small></div><div class="video-frame"><video id="birthdayVideo" src="assets/yyc-song.mp4" poster="assets/IMG_0205.JPG" preload="auto" autoplay playsinline loop controls aria-label="唱給歪歪西的歌"></video><button id="videoSoundButton" class="video-sound-button" type="button" hidden>點一下，聽我唱給妳聽 ♫</button></div></div><footer class="site-footer"><span>MADE WITH ALL MY LOVE FOR YYC</span><span>2026.10.09 <span aria-hidden="true">✦</span> 魚子醬</span></footer></section>
   </main>
 
   <dialog id="memoryDialog" class="memory-dialog" aria-labelledby="dialogTitle"><button id="closeDialog" class="dialog-close" type="button" aria-label="關閉回憶">×</button><div id="dialogArt" class="dialog-art"></div><div class="dialog-copy"><span id="dialogIndex" class="section-kicker"></span><h3 id="dialogTitle"></h3><p id="dialogText"></p></div></dialog>

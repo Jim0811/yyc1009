@@ -44,94 +44,42 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
 }
 
-const musicButton = document.getElementById('musicButton');
-const audio = document.getElementById('birthdayAudio');
 const video = document.getElementById('birthdayVideo');
 const videoSoundButton = document.getElementById('videoSoundButton');
-let wantsMusic = false;
+const soundHint = document.getElementById('soundHint');
 let onVideoPage = false;
+let soundUnlocked = false;
+let playbackAttempt = 0;
 
-function updateMusicControls() {
-  const isAudible = onVideoPage ? !video.muted && !video.paused : !audio.paused;
-  musicButton.setAttribute('aria-pressed', String(isAudible));
-  musicButton.setAttribute('aria-label', isAudible ? '暫停歌聲' : '聽我唱歌');
-  musicButton.title = isAudible ? '暫停歌聲' : '聽我唱歌';
+function updateSoundPrompt() {
+  soundHint.hidden = soundUnlocked || onVideoPage;
   videoSoundButton.hidden = !onVideoPage || !video.muted;
 }
 
-musicButton.addEventListener('click', async () => {
-  if (onVideoPage) {
-    if (!video.muted && !video.paused) {
-      video.muted = true;
-      wantsMusic = false;
-    } else {
-      video.muted = false;
-      try {
-        await video.play();
-        wantsMusic = true;
-      } catch {
-        video.muted = true;
-        wantsMusic = false;
-        showToast('請點影片上的按鈕開啟歌聲 ♫');
-      }
-    }
-    updateMusicControls();
-    return;
-  }
-  if (!audio.paused) {
-    audio.pause();
-    wantsMusic = false;
-    updateMusicControls();
-    return;
-  }
-  try {
-    await audio.play();
-    wantsMusic = true;
-    updateMusicControls();
-  } catch {
-    wantsMusic = false;
-    showToast('歌曲還沒能播放，請再點一次 ♫');
-  }
-});
-audio.addEventListener('error', () => { wantsMusic = false; updateMusicControls(); });
-video.addEventListener('volumechange', () => { if (onVideoPage) updateMusicControls(); });
-video.addEventListener('error', () => showToast('影片載入失敗，請重新整理頁面。'));
-videoSoundButton.addEventListener('click', async () => {
+async function playRecordingWithSound() {
+  const attempt = ++playbackAttempt;
   video.muted = false;
   try {
     await video.play();
-    wantsMusic = true;
+    if (attempt === playbackAttempt) soundUnlocked = true;
   } catch {
+    if (attempt !== playbackAttempt) return;
     video.muted = true;
-    wantsMusic = false;
-    showToast('請再點一次影片來播放歌聲 ♫');
-  }
-  updateMusicControls();
-});
-
-async function enterVideoPage() {
-  onVideoPage = true;
-  audio.pause();
-  video.muted = !wantsMusic;
-  try {
-    await video.play();
-  } catch {
-    video.muted = true;
-    wantsMusic = false;
     await video.play().catch(() => {});
   }
-  updateMusicControls();
+  if (attempt === playbackAttempt) updateSoundPrompt();
 }
 
-async function leaveVideoPage() {
-  onVideoPage = false;
-  video.pause();
-  if (wantsMusic) {
-    try { await audio.play(); }
-    catch { wantsMusic = false; }
-  }
-  updateMusicControls();
+// Browsers can block audible autoplay until the visitor interacts with the page.
+for (const eventName of ['pointerdown', 'touchend', 'keydown']) {
+  document.addEventListener(eventName, () => {
+    if (!soundUnlocked) void playRecordingWithSound();
+  }, { passive: true });
 }
+
+video.addEventListener('volumechange', updateSoundPrompt);
+video.addEventListener('error', () => showToast('影片載入失敗，請重新整理頁面。'));
+videoSoundButton.addEventListener('click', () => void playRecordingWithSound());
 
 const penguinButton = document.getElementById('penguinButton');
 const particleLayer = document.getElementById('particleLayer');
@@ -172,8 +120,9 @@ if ('IntersectionObserver' in window) {
       const active = entry.isIntersecting && entry.intersectionRatio >= .35;
       entry.target.classList.toggle('is-current', active);
       if (entry.target.id === 'song') {
-        if (active && !onVideoPage) enterVideoPage();
-        else if (!active && onVideoPage) leaveVideoPage();
+        onVideoPage = active;
+        if (active && video.paused) void playRecordingWithSound();
+        updateSoundPrompt();
       }
     });
   }, { threshold: [0, .35, .7] });
@@ -181,4 +130,4 @@ if ('IntersectionObserver' in window) {
 } else {
   pages.forEach(page => page.classList.add('is-current'));
 }
-updateMusicControls();
+void playRecordingWithSound();
