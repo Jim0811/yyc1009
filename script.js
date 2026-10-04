@@ -1,8 +1,8 @@
 const memories = [
-  { title: '從駁二開始', index: '01 / 2026.05.13', text: '那天的風、那天的妳，還有我藏不住的悸動。從這一天開始，我們的故事有了第一頁。', photo: null },
-  { title: '一朵手摺玫瑰', index: '02 / OUR LITTLE MOMENTS', text: '這朵玫瑰也許不完美，卻裝著我想親手交給妳的認真和喜歡。', photo: null },
-  { title: '牽著手的陪伴', index: '03 / ALWAYS HERE', text: '畢業典禮與忙碌的日子，都想站在妳身邊。妳可以勇敢往前走，也可以放心靠著我。', photo: null },
-  { title: '開學後的散步', index: '04 / AND EVERY DAY AFTER', text: '沒有特別的安排，和妳一起走著、聊著、笑著，就是我最喜歡的日常。', photo: null }
+  { title: '從駁二開始', index: '01 / 2026.05.13', text: '一開始在駁二遇見妳時就想著要慢慢認識，沒想到在這一天，男友魚子醬真的正式上崗了。謝謝妳，讓我的生活從這一天開始變得超級幸福。', photo: 'assets/IMG_4550.jpg' },
+  { title: '一束手摺玫瑰', index: '02 / OUR LITTLE MOMENTS', text: '鮮花會隨時間枯萎，但這束花不會。就像我給妳的陪伴一樣，安靜、長久，而且每一束都只屬於妳。', photo: 'assets/IMG_4609.JPG' },
+  { title: '最特別的生日', index: '03 / A SPECIAL DAY', text: '那天捧在手心的花很香，但比花更耀眼的是妳眼裡的溫柔。謝謝妳為我準備的一切，讓我知道自己一直被妳深深放在心上。', photo: 'assets/IMG_0219.JPG' },
+  { title: '專屬於我的七夕禮物', index: '04 / RUNNING TO YOU', text: '謝謝妳不辭辛勞地跨越距離走向我。那天一起走過台南的街巷，牽著妳的手吹著風，就是我能想像到最浪漫的七夕。', photo: 'assets/IMG_0650.JPG' }
 ];
 
 const dayNumber = document.getElementById('daysTogether');
