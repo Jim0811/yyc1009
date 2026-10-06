@@ -1,6 +1,6 @@
 const memories = [
   { title: '從駁二開始', index: '01 / 2026.05.13', text: '一開始在駁二遇見妳時就想著要慢慢認識，沒想到在這一天，男友魚子醬真的正式上崗了。謝謝妳，讓我的生活從這一天開始變得超級幸福。', photo: 'assets/IMG_4550.jpg' },
-  { title: '一束手摺玫瑰', index: '02 / OUR LITTLE MOMENTS', text: '鮮花會隨時間枯萎，但這束花不會。就像我給妳的陪伴一樣，安靜、長久，而且每一束都只屬於妳。', photo: 'assets/IMG_4609.JPG' },
+  { title: '一束手摺玫瑰', index: '02 / OUR LITTLE MOMENTS', text: '鮮花會隨時間枯萎，但這束花不會。就像我給妳的陪伴一樣，安靜、長久，而且每一朵都只屬於妳。', photo: 'assets/IMG_4609.JPG' },
   { title: '最特別的生日', index: '03 / A SPECIAL DAY', text: '那天捧在手心的花很香，但比花更耀眼的是妳眼裡的溫柔。謝謝妳為我準備的一切，讓我知道自己一直被妳深深放在心上。', photo: 'assets/IMG_0219.JPG' },
   { title: '專屬於我的七夕禮物', index: '04 / RUNNING TO YOU', text: '謝謝妳不辭辛勞地跨越距離走向我。那天一起走過台南的街巷，牽著妳的手吹著風，就是我能想像到最浪漫的七夕。', photo: 'assets/IMG_0650.JPG' }
 ];
